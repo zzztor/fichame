@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Set Page Color Popup</title>
+    <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px;
+      background: white;
+    }
+
+    div:first-child {
+      margin-top: 0px;
+    }
+
+    div {
+      cursor: pointer;
+      text-align: center;
+      padding: 1px 3px;
+      font-family: sans-serif;
+      font-size: 0.8em;
+      width: 100px;
+      margin-top: 1px;
+      background: #cccccc;
+    }
+    div:hover {
+      background: #aaaaaa;
+    }
+    button {
+      background: #267bbd;
+      color: white;
+      border: none;
+      font-size: 15px;
+      font-weight: 400;
+      height: 30px;
+      padding: 0 18px;
+      width: 100%;
+    }
+    button:disabled {
+      background: gainsboro
+    }
+    #date { 
+      font-size: 15px;
+      height: 40px;
+    }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <input id="date" type="date"></input>
+    <button>Ficha</button>
+  </body>
+</html>

@@ -5,8 +5,13 @@ getUserId(user_token).then((user_info) => {
   var url = base_url + 'timespans/create?cachekiller='+ Date.now() +'&v=0.10.329'
   var user_id = user_info._id
 
-  var mins_options = [0,15,30,45,60]
+  var start_mins_options = [10,20,30,40,50]
+  var break_mins_options = [-10,0,10]
+  var variable_mins_options = [-30,-20,-10,10,20,30]
 
+  var start_mins = start_mins_options[Math.round(Math.random()*start_mins_options.length)]
+  var break_mins = break_mins_options[Math.round(Math.random()*break_mins_options.length)]
+  var variable_mins = variable_mins_options[Math.round(Math.random()*variable_mins_options.length)]
 
   // crear una funcion para generar intervalos de fechas
   var init_date_start = new Date(date)
@@ -18,14 +23,14 @@ getUserId(user_token).then((user_info) => {
   var end_date_start = new Date(date)
   var end_date_end = new Date(date)
 
-  init_date_start.setHours(11, mins_options[Math.round(Math.random()*mins_options.length)])
-  init_date_end.setHours(init_date_start.getHours()+4, init_date_start.getMinutes())
+  init_date_start.setHours(9, start_mins)
+  init_date_end.setHours(init_date_start.getHours()+4, init_date_start.getMinutes()+variable_mins)
   
   break_date_start.setHours(init_date_end.getHours(),init_date_end.getMinutes())
-  break_date_end.setHours(break_date_start.getHours()+1, break_date_start.getMinutes())
+  break_date_end.setHours(break_date_start.getHours()+1, break_date_start.getMinutes()+break_mins)
   
   end_date_start.setHours(break_date_end.getHours(), break_date_end.getMinutes())
-  end_date_end.setHours(end_date_start.getHours()+4, end_date_start.getMinutes())
+  end_date_end.setHours(end_date_start.getHours()+4, end_date_start.getMinutes()-variable_mins)
 
   // /func
 
@@ -50,7 +55,7 @@ getUserId(user_token).then((user_info) => {
   var requests = []
   
   config.forEach(( entry, index ) => {
-    var payload = {'userId': user_id,'commentary':'','_id':'new','timezone':'+0000','timezoneName':'Central European Summer Time','source':{'sourceType':'browser','sourceId':'manual'},'type':'work','start':'2019-05-21T07:30:00Z','end':'2019-05-21T12:00:00Z','trace':[]}
+    var payload = {'userId': user_id,'commentary':'','_id':'new','timezone':'+0200','timezoneName':'Central European Summer Time','source':{'sourceType':'browser','sourceId':'manual'},'type':'work','start':'2019-05-21T07:30:00Z','end':'2019-05-21T12:00:00Z','trace':[]}
     var d = new Date(date)
   
     //d.setDate(d.getDate());

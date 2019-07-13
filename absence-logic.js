@@ -2,7 +2,7 @@ const base_url = 'https://app.absence.io/api/v2/'
 console.log('date', date)
 
 getUserId(user_token).then((user_info) => {
-  var url = base_url + 'timespans/create?cachekiller=' + Date.now() + '&v=0.10.329'
+  var url = base_url + 'timespans/create?cachekiller=' + Date.now()
   var user_id = user_info._id
 
   var start_mins_options = [10, 20, 30, 40, 50]

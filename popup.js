@@ -15,7 +15,7 @@ function click(e) {
       code: 'var date = ' + value + '; var user_token = JSON.parse(window.localStorage.getItem("absenceConnectedAccounts"))[window.localStorage.getItem("activeid")].ajaxToken;'
     }, function () {
       chrome.tabs.executeScript(tab.id,
-        { file: '/absense-logic.js' }, function () {
+        { file: '/absence-logic.js' }, function () {
           input_date.disabled = false
           btn.disabled = false
         });

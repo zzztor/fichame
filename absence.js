@@ -58,8 +58,6 @@ getUserId(user_token).then((user_info) => {
     var payload = { 'userId': user_id, 'commentary': '', '_id': 'new', 'timezone': '+0200', 'timezoneName': 'Central European Summer Time', 'source': { 'sourceType': 'browser', 'sourceId': 'manual' }, 'type': 'work', 'start': '2019-05-21T07:30:00Z', 'end': '2019-05-21T12:00:00Z', 'trace': [] }
     var d = new Date(date)
 
-    //d.setDate(d.getDate());
-
     payload.start = entry.start
     payload.end = entry.end
     payload.type = entry.type
@@ -82,18 +80,9 @@ getUserId(user_token).then((user_info) => {
     console.log('payload', payload)
   })
 
-  Promise.all(requests.map(request => fetch(request))).then(responses =>
-    Promise.all(responses.map(res => res.text()))
-  ).then(texts => {
-    console.log('texts', texts)
-    window.close()
-  })
+  Promise.all(requests.map(request => fetch(request))).then(window.close)
 })
-/* fetch(request)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      }) */
+
 function getUserId(_user_token) {
   var auth_url = 'https://app.absence.io/api/auth/' + _user_token
   var user_info_request = new Request(auth_url, {

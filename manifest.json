@@ -1,16 +1,25 @@
 {
+  "manifest_version": 2,
   "name": "Fichame",
-  "description": "Añade registros de tiempo en Absence",
   "version": "1.0",
+  "description": "Añade registros de tiempo en Absence",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png"
+    },
+    "default_title": "Fichame!",
+    "default_popup": "popup.html"
+  },
   "permissions": [
     "activeTab",
     "tabs",
     "https://app.absence.io/"
-  ],
-  "browser_action": {
-    "default_title": "Fichame!",
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "manifest_version": 2
+  ]
 }

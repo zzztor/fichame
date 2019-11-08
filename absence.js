@@ -55,8 +55,9 @@ getUserId(user_token).then((user_info) => {
   var requests = []
 
   config.forEach((entry, index) => {
-    var payload = { 'userId': user_id, 'commentary': '', '_id': 'new', 'timezone': '+0200', 'timezoneName': 'Central European Summer Time', 'source': { 'sourceType': 'browser', 'sourceId': 'manual' }, 'type': 'work', 'start': '2019-05-21T07:30:00Z', 'end': '2019-05-21T12:00:00Z', 'trace': [] }
     var d = new Date(date)
+    var offset = d.getTimezoneOffset() / -60;
+    var payload = { 'userId': user_id, 'commentary': '', '_id': 'new', 'timezone': '+0' + offset + '00', 'timezoneName': 'Central European Summer Time', 'source': { 'sourceType': 'browser', 'sourceId': 'manual' }, 'type': 'work', 'start': '2019-05-21T07:30:00Z', 'end': '2019-05-21T12:00:00Z', 'trace': [] }
 
     payload.start = entry.start
     payload.end = entry.end
